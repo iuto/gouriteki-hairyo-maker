@@ -8,44 +8,63 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .hidden { display: none; }
+        body.dark-mode {
+            background-color: #111827;
+            color: #ffffff;
+        }
+
     </style>
 </head>
 
-<body class="p-6">
-    <div class="ml-auto mr-auto">
-        <h1 class="text-3xl font-bold mb-4">合理的配慮メーカー</h1>
+<body class="mx-auto text-center max-w-md">
+    <header>
+        
+<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="#" class="flex items-center">
+        <img src="" class="h-8 mr-3" alt="">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">合理的配慮メーカー</span>
+    </a>
+    <div class="flex md:order-2">
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">About</button>
+    </div>
+    </div>
+  </nav>  
+    </header>
+
+    <div class="">
+        <h1 class="text-3xl font-bold mt-20 mb-4 px-10 py-2"></h1>
     
     <div class="mb-4">
-        <label class="flex items-center">
-            <input type="checkbox" id="sensitivityToggle" class="mr-2">
-            <span class="text-lg font-bold">感覚過敏/感覚鈍麻</span>
-        </label>
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 rounded dark:border-gray-700">
+            <input id="sensitivityToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="sensitivityToggle" class="w-full py-4 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">感覚過敏/感覚鈍麻</label>
+        </div>              
         <div id="sensitivitySection" class="hidden ml-6">
             <!-- Sound Sensitivity -->
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="soundSensitivity" class="mr-2">
-                    <span class="font-bold">音の過敏さ</span>
+                    <span class="font-bold text-lg text-lg text-lg">音の過敏さ</span>
                 </label>
                 <div class="ml-6">
                     <div class="pl-8">
                         <label class="flex items-center">
-                            <input type="checkbox" id="earMuffs" value="イヤーマフ">
+                            <input type="checkbox" id="earMuffs" value="イヤーマフ" class="mr-2">
                             <span>イヤーマフ</span>
                         </label>
-                        <br>
                         <label class="flex items-center">
-                            <input type="checkbox" id="noiseCancellingEarphones" value="ノイズキャンセリングイヤホン">
+                            <input type="checkbox" id="noiseCancellingEarphones" value="ノイズキャンセリングイヤホン" class="mr-2">
                             <span>ノイズキャンセリングイヤホン</span>
                         </label>
-                        <br>
+                        
                         <label class="flex items-center">
-                            <input type="checkbox" id="earPlugs" value="耳栓">
+                            <input type="checkbox" id="earPlugs" value="耳栓" class="mr-2">
                             <span>耳栓</span>
                         </label>
-                        <br>
+                        
                         <label class="flex items-center">
-                            <input type="checkbox" id="digitalEarPlugs" value="デジタル耳栓">
+                            <input type="checkbox" id="digitalEarPlugs" value="デジタル耳栓" class="mr-2">
                             <span>デジタル耳栓</span>
                         </label>
                     </div>
@@ -56,15 +75,15 @@
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="visualSensitivity" class="mr-2">
-                    <span class="font-bold">視覚の過敏さ</span>
+                    <span class="font-bold text-lg text-lg">視覚の過敏さ</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="lightShieldGlasses" value="遮光グラス">
+                        <input type="checkbox" id="lightShieldGlasses" value="遮光グラス" class="mr-2">
                         <span>遮光グラス</span>
                     </label>
                     <label class="flex items-center">
-                        <input type="checkbox" id="SunGlasses" value="遮光グラス">
+                        <input type="checkbox" id="SunGlasses" value="サングラス" class="mr-2">
                         <span>サングラス</span>
                     </label>
                 </div>
@@ -74,11 +93,11 @@
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="tasteSensitivity" class="mr-2">
-                    <span class="font-bold">味覚の過敏さ</span>
+                    <span class="font-bold text-lg text-lg">味覚の過敏さ</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="foodChange">
+                        <input type="checkbox" id="foodChange" class="mr-2">
                         <span>食べるものを変更</span>
                     </label>
                 </div>
@@ -88,11 +107,11 @@
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="smellSensitivity" class="mr-2">
-                    <span class="font-bold">嗅覚の過敏さ</span>
+                    <span class="font-bold text-lg text-lg">嗅覚の過敏さ</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="placeChange">
+                        <input type="checkbox" id="placeChange" class="mr-2">
                         <span>マスク</span>
                     </label>
                 </div>
@@ -102,11 +121,11 @@
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="touchSensitivity" class="mr-2">
-                    <span class="font-bold">触覚の過敏さ</span>
+                    <span class="font-bold text-lg text-lg">触覚の過敏さ</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="clothesChange">
+                        <input type="checkbox" id="clothesChange" class="mr-2">
                         <span>服装の変更</span>
                     </label>
                 </div>
@@ -115,25 +134,25 @@
     </div>
 
     <div class="mb-4">
-        <label class="flex items-center">
-            <input type="checkbox" id="communicationToggle" class="mr-2">
-            <span class="text-lg font-bold">コミュニケーション</span>
-        </label>
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 rounded dark:border-gray-700">
+            <input id="communicationToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="communicationToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">コミュニケーション</label>
+        </div>             
         <div id="communicationSection" class="hidden ml-6">
             <!-- Difficulty with Japanese -->
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="japaneseDifficulty" class="mr-2">
-                    <span class="font-bold">日本語が苦手</span>
+                    <span class="font-bold text-lg text-lg">日本語が苦手</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="translationService">
+                        <input type="checkbox" id="translationService" class="mr-2">
                         <span>翻訳サービス</span>
                     </label>
-                    <br>
+                    
                     <label class="flex items-center">
-                        <input type="checkbox" id="simpleJapanese">
+                        <input type="checkbox" id="simpleJapanese" class="mr-2">
                         <span>やさしい日本語</span>
                     </label>
                 </div>
@@ -142,11 +161,11 @@
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="interpretDifficulty" class="mr-2">
-                    <span class="font-bold">意図を汲み取ることが難しい</span>
+                    <span class="font-bold text-lg text-lg">意図を汲み取ることが難しい</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="directExpression">
+                        <input type="checkbox" id="directExpression" class="mr-2">
                         <span>直接的な表現で伝えてもらう</span>
                     </label>
                 </div>
@@ -155,31 +174,31 @@
             <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="speakingDifficulty" class="mr-2">
-                    <span class="font-bold">声に出して話すことが難しい</span>
+                    <span class="font-bold text-lg text-lg">声に出して話すことが難しい</span>
                 </label>
                 <div class="ml-6">
                     <label class="flex items-center">
-                        <input type="checkbox" id="deviceUse">
+                        <input type="checkbox" id="deviceUse" class="mr-2">
                         <span>デバイスを使用する</span>
                     </label>
-                    <br>
+                    
                     <label class="flex items-center">
-                        <input type="checkbox" id="writingCommunication">
+                        <input type="checkbox" id="writingCommunication" class="mr-2">
                         <span>筆談する</span>
                     </label>
-                    <br>
+                    
                     <label class="flex items-center">
-                        <input type="checkbox" id="proxySpeaking">
+                        <input type="checkbox" id="proxySpeaking" class="mr-2">
                         <span>代わりに話してもらう</span>
                     </label>
-                    <br>
+                    
                     <label class="flex items-center">
-                        <input type="checkbox" id="listenToEnd">
+                        <input type="checkbox" id="listenToEnd" class="mr-2">
                         <span>話しているときに遮らない</span>
                     </label>
-                    <br>
+                    
                     <label class="flex items-center">
-                        <input type="checkbox" id="provideClarification">
+                        <input type="checkbox" id="provideClarification" class="mr-2">
                         <span>話しているときに補足する</span>
                     </label>
                 </div>
@@ -189,40 +208,40 @@
 
 <!-- Reading and Writing Category -->
 <div class="mb-4">
-    <label class="flex items-center">
-        <input type="checkbox" id="readingWritingToggle" class="mr-2">
-        <span class="text-lg font-bold">読み書き</span>
-    </label>
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 rounded dark:border-gray-700">
+        <input id="readingWritingToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="readingWritingToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">読み書き</label>
+    </div>    
     <div id="readingWritingSection" class="hidden ml-6">
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="readingDifficulty" class="mr-2">
-                <span class="font-bold">読むことが苦手</span>
+                <span class="font-bold text-lg text-lg">読むことが苦手</span>
             </label>
             <div id="readingOptions" class="ml-6">
                 <label class="flex items-center">
                     <input type="checkbox" id="largeText" class="mr-2">
-                    <span class="font-bold">大きな文字にする</span>
+                    <span>大きな文字にする</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="readForMe" class="mr-2">
-                    <span class="font-bold">代わりに読んでもらう</span>
+                    <span>代わりに読んでもらう</span>
                 </label>
             </div>
         </div>
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="writingDifficulty" class="mr-2">
-                <span class="font-bold">書くことが苦手</span>
+                <span class="font-bold text-lg text-lg">書くことが苦手</span>
             </label>
             <div id="writingOptions" class="ml-6">
                 <label class="flex items-center">
                     <input type="checkbox" id="deviceUseWriting" class="mr-2">
-                    <span class="font-bold">デバイスの使用</span>
+                    <span>デバイスの使用</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="writeForMe" class="mr-2">
-                    <span class="font-bold">代わりに書いてもらう</span>
+                    <span>代わりに書いてもらう</span>
                 </label>
             </div>
         </div>
@@ -231,52 +250,52 @@
 
 <!-- LGBTQ Category -->
 <div class="mb-4">
-    <label class="flex items-center">
-        <input type="checkbox" id="lgbtqToggle" class="mr-2">
-        <span class="text-lg font-bold">LGBTQ</span>
-    </label>
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 rounded dark:border-gray-700">
+        <input id="lgbtqToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="lgbtqToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">LGBTQ</label>
+    </div>      
     <div id="lgbtqSection" class="hidden ml-6">
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="genderIdentity" class="mr-2">
-                <span class="font-bold">性別違和</span>
+                <span class="font-bold text-lg text-lg">性別違和</span>
             </label>
             <div id="genderIdentityOptions" class="ml-6">
                 <label class="flex items-center">
                     <input type="checkbox" id="hairStyleDressing" class="mr-2">
-                    <span class="font-bold">戸籍とは異なる性の髪型や服装を認める</span>
+                    <span>戸籍とは異なる性の髪型や服装を認める</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="toiletUse" class="mr-2">
-                    <span class="font-bold">使用するトイレの配慮</span>
+                    <span>使用するトイレの配慮</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="changingRoom" class="mr-2">
-                    <span class="font-bold">更衣室の配慮</span>
+                    <span>更衣室の配慮</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="surnameUse" class="mr-2">
-                    <span class="font-bold">名字で呼ぶ</span>
+                    <span>名字で呼ぶ</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="nicknameUse" class="mr-2">
-                    <span class="font-bold">通称名で呼ぶ</span>
+                    <span>通称名で呼ぶ</span>
                 </label>
                 <label class="flex items-center">
                     <input type="checkbox" id="outingProhibition" class="mr-2">
-                    <span class="font-bold">アウティングの禁止</span>
+                    <span>アウティングの禁止</span>
                 </label>
             </div>
         </div>
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="sexualOrientation" class="mr-2">
-                <span class="font-bold">性的指向</span>
+                <span class="font-bold text-lg text-lg">性的指向</span>
             </label>
             <div id="sexualOrientationOptions" class="ml-6">
                 <label class="flex items-center">
                     <input type="checkbox" id="outingProhibitionSexual" class="mr-2">
-                    <span class="font-bold">アウティングの禁止</span>
+                    <span>アウティングの禁止</span>
                 </label>
             </div>
         </div>
@@ -284,16 +303,16 @@
 </div>
 
     <div class="mb-4">
-        <button id="generateText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button id="generateText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-lg text-lg py-3 px-8 rounded-lg">
             文章を生成
         </button>
     </div>
 
     <div class="mb-4 hidden" id="outputContainer">
-        <div class="p-4 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 w-1/2" role="alert">
+        <div class="p-4 text-sm text-gray-800 rounded-xl bg-gray-50 dark:bg-gray-800 dark:text-gray-300" role="alert">
             <span class="font-medium" id="output"></span>
         </div>
-        <button id="copyText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">コピー</button>
+        <button id="copyText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-lg text-lg py-2 px-4 rounded-lg">コピー</button>
     </div>    
 </div>
     

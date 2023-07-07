@@ -139,3 +139,21 @@ document.getElementById('output').innerHTML = outputText.join('<br>');
             console.error('テキストのコピー中にエラーが発生しました:', err);
         });
 });
+
+  // ダークモードの切り替えを処理する関数
+  function toggleDarkMode() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+  }
+
+  // ダークモードの自動切り替えを検出する関数
+  function detectDarkMode() {
+    var darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkModeMediaQuery.matches) {
+      var body = document.body;
+      body.classList.add("dark-mode");
+    }
+  }
+
+  // ページの読み込み完了時に自動切り替えの検出を行う
+  window.addEventListener("DOMContentLoaded", detectDarkMode);
