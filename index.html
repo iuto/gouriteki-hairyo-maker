@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配慮選択システム</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+
+<body class="p-6">
+    <h1 class="text-xl font-bold mb-4">配慮選択システム</h1>
+    
+    <div class="mb-4">
+        <label class="flex items-center">
+            <input type="checkbox" id="sensitivityToggle" class="mr-2">
+            <span class="text-lg font-bold">感覚過敏/感覚鈍麻</span>
+        </label>
+        <div id="sensitivitySection" class="hidden ml-6">
+            <!-- Sound Sensitivity -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="soundSensitivity" class="mr-2" value="音の過敏さがあります。">
+                    <span class="font-bold">音の過敏さ</span>
+                </label>
+                <div class="ml-6">
+                    <div class="pl-8">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="earMuffs" value="イヤーマフ">
+                            <span>イヤーマフ</span>
+                        </label>
+                        <br>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="noiseCancellingEarphones" value="ノイズキャンセリングイヤホン">
+                            <span>ノイズキャンセリングイヤホン</span>
+                        </label>
+                        <br>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="earPlugs" value="耳栓">
+                            <span>耳栓</span>
+                        </label>
+                        <br>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="digitalEarPlugs" value="デジタル耳栓">
+                            <span>デジタル耳栓</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Sensitivity -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="visualSensitivity" class="mr-2" value="視覚の過敏さがあります。">
+                    <span class="font-bold">視覚の過敏さ</span>
+                </label>
+                <div class="ml-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="lightShieldGlasses" value="遮光グラス">
+                        <span>遮光グラス</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Taste Sensitivity -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="tasteSensitivity" class="mr-2" value="味覚の過敏さがあります。">
+                    <span class="font-bold">味覚</span>
+                </label>
+                <div class="ml-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="foodChange" value="食べるものを変更したいと考えています。">
+                        <span>食べるものを変更</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Smell Sensitivity -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="smellSensitivity" class="mr-2" value="嗅覚の過敏さがあります。">
+                    <span class="font-bold">嗅覚</span>
+                </label>
+                <div class="ml-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="placeChange" value="マスクの着用を考えています。">
+                        <span>マスク</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Touch Sensitivity -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="touchSensitivity" class="mr-2" value="触覚の過敏さがあります。">
+                    <span class="font-bold">触覚</span>
+                </label>
+                <div class="ml-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="clothesChange" value="服装の変更をお願いしたいと考えています。">
+                        <span>服装の変更</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button id="generateText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        文章を生成
+    </button>
+    
+    <div id="output" class="mt-4"></div>
+</body>
+<script src="script.js"></script>
+
+</html>
