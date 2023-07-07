@@ -126,11 +126,9 @@ document.getElementById('generateText').addEventListener('click', function() {
 });
 
 document.getElementById('output').innerHTML = outputText.join('<br>');
-    // コピーと出力テキストの表示エリアを表示する
     document.getElementById('outputContainer').classList.remove('hidden');
-    const text = outputElement.innerHTML;
+    const text = document.getElementById('output').innerHTML;
 
-    // テキストをクリップボードにコピーする
     navigator.clipboard.writeText(text)
         .then(function() {
             console.log('テキストがコピーされました');
