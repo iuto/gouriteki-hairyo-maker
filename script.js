@@ -97,7 +97,7 @@ document.getElementById('generateText').addEventListener('click', function() {
         sexualOrientation: {
             label: '特定の性的指向を持っています。',
             options: ['outingProhibitionSexual'],
-            accommodation: 'の配慮を希望しています。',
+            accommodation: '配慮を希望しています。',
         },
     };
     
@@ -112,12 +112,16 @@ document.getElementById('generateText').addEventListener('click', function() {
         const category = categoriesData[categoryId];
         for (let key in category) {
             const item = category[key];
+            const labelText = item.label;
             if (document.getElementById(key).checked) {
                 const options = item.options.map(option => document.getElementById(option));
                 const selectedOptions = options.filter(option => option.checked);
                 const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
-                const itemsText = `そのため、${optionsText}${item.accommodation}`;
-                outputText.push(item.label + itemsText);
+                if (optionsText !== "") {
+                    outputText.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
+                } else {
+                    outputText.push(labelText);
+                }
             }
         }
     }
@@ -136,6 +140,28 @@ document.getElementById('output').innerHTML = outputText.join('<br>');
         .catch(function(err) {
             console.error('テキストのコピー中にエラーが発生しました:', err);
         });
+});
+
+document.getElementById('downloadPDF').addEventListener('click', function(){
+    var element = document.getElementById('outputContainer');
+
+    // 一時的に非表示にする
+    var buttonsToHide = document.querySelectorAll('#copyText, #downloadPDF');
+    buttonsToHide.forEach(button => button.style.display = 'none');
+
+    var opt = {
+        margin:       1,
+        filename:     'output.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+        // PDFをダウンロードした後で再度表示する
+        pdf.save();
+        buttonsToHide.forEach(button => button.style.display = '');
+    });
 });
 
   // ダークモードの切り替えを処理する関数
