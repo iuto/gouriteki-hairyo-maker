@@ -9,7 +9,38 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body class="mx-auto text-center max-w-md dark-mode">
+<style>
+    .hidden { display: none; }
+    body.dark-mode {
+        background-color: #111827;
+        color: #ffffff;
+    }
+    body.dark-mode nav {
+        background-color: #111827;
+        color: #ffffff;
+    }
+    body.dark-mode nav a {
+        color: #ffffff;
+    }
+    body.dark-mode h1,
+    body.dark-mode label {
+        color: #ffffff;
+    }
+    .darkmode-span {
+        color: black;
+    }
+    body.dark-mode .darkmode-span {
+        color: #ffffff;
+    }
+    .darkmode-span .p-4.text-sm.text-gray-800.rounded-xl.bg-gray-50.dark.bg-gray-800.dark.text-white span {
+        color: black;
+    }
+    body.dark-mode .darkmode-span .p-4.text-sm.text-gray-800.rounded-xl.bg-gray-50.dark.bg-gray-800.dark.text-white span {
+        color: #ffffff;
+    }
+</style>
+
+<body class="mx-auto text-center max-w-md">
     <header>
         <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
