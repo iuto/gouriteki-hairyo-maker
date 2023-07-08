@@ -164,20 +164,26 @@ document.getElementById('downloadPDF').addEventListener('click', function(){
     });
 });
 
-  // ダークモードの切り替えを処理する関数
-  function toggleDarkMode() {
+// ダークモードの切り替えを処理する関数
+function toggleDarkMode() {
+  var body = document.body;
+  body.classList.toggle("dark-mode");
+}
+
+// ダークモードの自動切り替えを検出する関数
+function detectDarkMode() {
+  var darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  if (darkModeMediaQuery.matches) {
     var body = document.body;
-    body.classList.toggle("dark-mode");
+    body.classList.add("dark-mode");
   }
+}
 
-  // ダークモードの自動切り替えを検出する関数
-  function detectDarkMode() {
-    var darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    if (darkModeMediaQuery.matches) {
-      var body = document.body;
-      body.classList.add("dark-mode");
-    }
-  }
-
-  // ページの読み込み完了時に自動切り替えの検出を行う
-  window.addEventListener("DOMContentLoaded", detectDarkMode);
+// ページの読み込み完了時に自動切り替えの検出を行う
+window.addEventListener("DOMContentLoaded", function() {
+    detectDarkMode();
+  
+    var darkModeToggle = document.getElementById("darkModeToggle");
+    darkModeToggle.addEventListener("click", toggleDarkMode);
+  });
+  
