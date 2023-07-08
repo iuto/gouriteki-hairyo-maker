@@ -164,6 +164,29 @@ document.getElementById('downloadPDF').addEventListener('click', function(){
     });
 });
 
+// create an array of objects with the id, trigger element (eg. button), and the content element
+const accordionItems = [
+    {
+        id: 'accordion-example-heading-1',
+        triggerEl: document.querySelector('#accordion-example-heading-1'),
+        targetEl: document.querySelector('#accordion-example-body-1'),
+        active: true
+    },
+    {
+        id: 'accordion-example-heading-2',
+        triggerEl: document.querySelector('#accordion-example-heading-2'),
+        targetEl: document.querySelector('#accordion-example-body-2'),
+        active: false
+    },
+    {
+        id: 'accordion-example-heading-3',
+        triggerEl: document.querySelector('#accordion-example-heading-3'),
+        targetEl: document.querySelector('#accordion-example-body-3'),
+        active: false
+    }
+];
+
+
 // ダークモードの切り替えを処理する関数
 function toggleDarkMode() {
   var body = document.body;

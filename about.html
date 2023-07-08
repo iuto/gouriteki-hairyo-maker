@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合理的配慮メーカー</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<header>
+    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="index.html" class="flex items-center">
+            <img src="" class="h-8 mr-3" alt="">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">合理的配慮メーカー</span>
+        </a>
+        </div>
+    </nav>  
+</header>
+
+<body class="mx-auto text-center max-w-md">
+
+  <h1 class="text-3xl font-bold mt-20 mb-4 px-10 py-2"></h1>
+
+  <h4 class="text-2xl mb-8 font-bold dark:text-white">合理的配慮メーカーについて</h4>
+  <p class="text-lg mb-8 text-gray-900 dark:text-white">困りごと・必要としている支援内容を選択して、文章を生成したり、生成した文章をPDFとして印刷できるWEBサービスです。<br><br></p>
+  
+  <h4 class="text-2xl mb-8 font-bold dark:text-white">合理的配慮について</h4>
+
+
+  <div id="accordion-color" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
+    <h2 id="accordion-color-heading-1">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
+        <span>合理的配慮とは？</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-color-body-1" class="hidden" aria-labelledby="accordion-color-heading-1">
+      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        <p class="mb-2 text-gray-500 dark:text-gray-400 text-left">合理的配慮とは、普段の生活や学校、仕事などで困ったことがあるときに、その困りごとを少しでも解消するために、周りの人々や組織ができるサポートのことです。</p>
+      </div>
+    </div>
+    <h2 id="accordion-color-heading-2">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
+        <span>合理的配慮の例</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
+      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+        <p class="mb-2 text-gray-500 dark:text-gray-400 text-left">例えば、学習や仕事で困っている場合、説明を視覚的に示してもらうことや特定のツールやアプリケーションを利用することでサポートを受けることは、日々の活動をより円滑に進めるための「合理的配慮」の一例です。</p>
+      </div>
+    </div>
+    <h2 id="accordion-color-heading-3">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
+        <span>合理的配慮を受けるために</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
+      <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+        <p class="mb-2 text-gray-500 dark:text-gray-400 text-left">「合理的」という言葉は、困りごとをサポートする方法が周りの人々や組織にとっても実現可能で、無理なく対応できる範囲であることを意味します。<br><br>だからこそ、困っていることを周りの人々にはっきりと伝え、どうしたらその困りごとが解消できるか、自分なりの提案も一緒に伝えると良いでしょう。<br><br>その上で、提案したことが実現可能かどうか、あるいは他にどんな方法があるのかを一緒に考えてみることが大切です。</p>
+      </div>
+    </div>
+  </div>  
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const accordions = document.querySelectorAll('[data-accordion="collapse"]');
+
+  accordions.forEach(accordion => {
+    const buttons = accordion.querySelectorAll('[data-accordion-target]');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-accordion-target');
+        const targetElement = document.querySelector(targetId);
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+
+        // Toggle aria-expanded
+        button.setAttribute('aria-expanded', !expanded);
+        // Toggle visibility of the target element
+        targetElement.classList.toggle('hidden');
+        
+        // Set classes for active and inactive states
+        const activeClasses = accordion.getAttribute('data-active-classes')?.split(' ');
+        const inactiveClasses = accordion.getAttribute('data-inactive-classes')?.split(' ');
+
+        if (activeClasses && inactiveClasses) {
+          if (expanded) {
+            button.classList.remove(...activeClasses);
+            button.classList.add(...inactiveClasses);
+          } else {
+            button.classList.remove(...inactiveClasses);
+            button.classList.add(...activeClasses);
+          }
+        }
+        
+        // Rotate the accordion icon
+        const icon = button.querySelector('[data-accordion-icon]');
+        icon.style.transform = `rotate(${expanded ? 0 : 180}deg)`;
+      });
+    });
+  });
+});
+</script>
+</html>
