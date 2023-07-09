@@ -19,8 +19,23 @@ for (let toggleId in categories) {
     });
 }
 
+function showErrorModal() {
+    var modal = document.getElementById('popup-modal');
+    modal.classList.remove('hidden');
+}
+
+function hideErrorModal() {
+    var modal = document.getElementById('popup-modal');
+    modal.classList.add('hidden');
+}
+
+document.querySelectorAll('[data-modal-hide="popup-modal"]').forEach(function(button) {
+    button.addEventListener('click', hideErrorModal);
+});
+
 document.getElementById('generateText').addEventListener('click', function() {
     let outputText = [];
+    let hasOptions = false;
     const sensitivities = {
         soundSensitivity: {
             label: '音の過敏さがあります。',
@@ -119,6 +134,7 @@ document.getElementById('generateText').addEventListener('click', function() {
                 const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
                 if (optionsText !== "") {
                     outputText.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
+                    hasOptions = true;
                 } else {
                     outputText.push(labelText);
                 }
@@ -128,6 +144,11 @@ document.getElementById('generateText').addEventListener('click', function() {
 
     document.getElementById('generateText').addEventListener('click', function() {
 });
+
+if (!hasOptions) {
+    showErrorModal();
+    return;
+}
 
 document.getElementById('output').innerHTML = outputText.join('<br>');
     document.getElementById('outputContainer').classList.remove('hidden');
@@ -185,7 +206,6 @@ const accordionItems = [
         active: false
     }
 ];
-
 
 // ダークモードの切り替えを処理する関数
 function toggleDarkMode() {
