@@ -92,7 +92,7 @@ document.getElementById('generateText').addEventListener('click', function() {
         genderIdentity: {
             label: '性別違和があります。',
             options: ['hairStyleDressing', 'toiletUse', 'changingRoom', 'surnameUse', 'nicknameUse', 'outingProhibition'],
-            accommodation: 'の配慮を希望しています。',
+            accommodation: '配慮を希望しています。',
         },
         sexualOrientation: {
             label: '特定の性的指向を持っています。',

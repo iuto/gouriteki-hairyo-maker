@@ -26,3 +26,8 @@ body.dark-mode .darkmode-span {
 body.dark-mode .darkmode-span .p-4.text-sm.text-gray-800.rounded-xl.bg-gray-50.dark.bg-gray-800.dark.text-white span {
     color: #ffffff;
 }
+
+body {
+    width: 90%;
+    margin: auto;
+}
