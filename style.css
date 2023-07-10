@@ -1,35 +1,3 @@
-.hidden { display: none; }
-body.dark-mode {
-    background-color: #111827;
-    color: #ffffff;
-}
-body.dark-mode nav {
-    background-color: #111827;
-    color: #ffffff;
-}
-body.dark-mode nav a {
-    color: #ffffff;
-}
-body.dark-mode h1,
-body.dark-mode label {
-    color: #ffffff;
-}
-.darkmode-span {
-    color: black;
-}
-body.dark-mode .darkmode-span {
-    color: #ffffff;
-}
-.darkmode-span .p-4.text-sm.text-gray-800.rounded-xl.bg-gray-50.dark.bg-gray-800.dark.text-white span {
-    color: black;
-}
-body.dark-mode .darkmode-span .p-4.text-sm.text-gray-800.rounded-xl.bg-gray-50.dark.bg-gray-800.dark.text-white span {
-    color: #ffffff;
-}
-.darkmode p {
-    color: #fff;
-}
-
 body {
     width: 90%;
     margin: auto;
