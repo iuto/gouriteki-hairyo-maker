@@ -6,6 +6,53 @@ const categories = {
     lgbtqToggle: 'lgbtqSection',
 };
 
+// 各オプションに対応するラベルのid
+const optionToLabelMapping = {
+    earMuffs: 'soundSensitivity',
+    noiseCancellingEarphones: 'soundSensitivity',
+    earPlugs: 'soundSensitivity',
+    digitalEarPlugs: 'soundSensitivity',
+    lightShieldGlasses: 'visualSensitivity',
+    SunGlasses: 'visualSensitivity',
+    foodChange: 'tasteSensitivity',
+    placeChange: 'smellSensitivity',
+    clothesChange: 'touchSensitivity',
+    translationService: 'japaneseDifficulty',
+    simpleJapanese: 'japaneseDifficulty',
+    directExpression: 'interpretDifficulty',
+    deviceUse: 'speakingDifficulty',
+    writingCommunication: 'speakingDifficulty',
+    proxySpeaking: 'speakingDifficulty',
+    listenToEnd: 'speakingDifficulty',
+    provideClarification: 'speakingDifficulty',
+    largeText: 'readingDifficulty',
+    readForMe: 'readingDifficulty',
+    deviceUseWriting: 'writingDifficulty',
+    writeForMe: 'writingDifficulty',
+    hairStyleDressing: 'genderIdentity',
+    toiletUse: 'genderIdentity',
+    changingRoom: 'genderIdentity',
+    surnameUse: 'genderIdentity',
+    nicknameUse: 'genderIdentity',
+    outingProhibition: 'genderIdentity',
+    outingProhibitionSexual: 'sexualOrientation',
+};
+
+// オプションの変更に対応するリスナーの設定
+for (let optionId in optionToLabelMapping) {
+    const labelId = optionToLabelMapping[optionId];
+    document.getElementById(optionId).addEventListener('change', function () {
+        const label = document.getElementById(labelId);
+        if (this.checked) {
+            label.checked = true;
+        }
+        // オプションが選択解除されたときにラベルも選択解除する場合は、以下のコードを追加してください。
+        // else {
+        //     label.checked = false;
+        // }
+    });
+}
+
 // 大きなカテゴリのトグルの変更に対応するリスナーの設定
 for (let toggleId in categories) {
     const sectionId = categories[toggleId];
@@ -18,20 +65,6 @@ for (let toggleId in categories) {
         }
     });
 }
-
-function showErrorModal() {
-    var modal = document.getElementById('popup-modal');
-    modal.classList.remove('hidden');
-}
-
-function hideErrorModal() {
-    var modal = document.getElementById('popup-modal');
-    modal.classList.add('hidden');
-}
-
-document.querySelectorAll('[data-modal-hide="popup-modal"]').forEach(function(button) {
-    button.addEventListener('click', hideErrorModal);
-});
 
 document.getElementById('generateText').addEventListener('click', function() {
     let outputText = [];
@@ -144,11 +177,6 @@ document.getElementById('generateText').addEventListener('click', function() {
 
     document.getElementById('generateText').addEventListener('click', function() {
 });
-
-if (!hasOptions) {
-    showErrorModal();
-    return;
-}
 
 document.getElementById('output').innerHTML = outputText.join('<br>');
     document.getElementById('outputContainer').classList.remove('hidden');
