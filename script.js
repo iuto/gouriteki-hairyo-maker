@@ -23,6 +23,7 @@ for (let toggleId in categories) {
 
 document.getElementById('generateText').addEventListener('click', function() {
     let outputText = [];
+    let hasError = false;
     const sensitivities = {
         soundSensitivity: {
             label: '音の過敏さがあります。',
@@ -106,7 +107,7 @@ document.getElementById('generateText').addEventListener('click', function() {
     const lgbtq = {
         genderIdentity: {
             label: '性別違和があります。',
-            options: ['hairStyleDressing', 'toiletUse', 'changingRoom', 'outingProhibition'],
+            options: ['hairStyleDressing', 'toiletUse', 'changingRoom','outingProhibition'],
             accommodation: 'を希望しています。',
         },
         sexualOrientation: {
@@ -120,7 +121,7 @@ document.getElementById('generateText').addEventListener('click', function() {
         sensitivities: { label: '感覚過敏/感覚鈍麻', data: sensitivities },
         visualCharacteristics: { label: '視覚特性', data: visualCharacteristics },
         communications: { label: 'コミュニケーション', data: communications },
-        lgbtq: { label: 'LGBTQ', data: lgbtq },
+        lgbtq: { label: 'LGBTQ+', data: lgbtq },
         readingWriting: { label: '読み書き', data: readingWriting }
     };     
     
@@ -131,7 +132,7 @@ document.getElementById('generateText').addEventListener('click', function() {
             const item = category.data[key];
             const labelText = item.label;
             if (document.getElementById(key).checked) {
-                if (item.options) { // options property の存在を確認する
+                if (item.options) { 
                     const options = item.options.map(option => document.getElementById(option));
                     const selectedOptions = options.filter(option => option.checked);
                     const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
@@ -141,19 +142,27 @@ document.getElementById('generateText').addEventListener('click', function() {
                         categoryItems.push(labelText);
                     }
                 } else {
-                    categoryItems.push(labelText); // options property が存在しない場合でも labelText を追加する
+                    categoryItems.push(labelText); 
+                }
+            } else if (item.options) {
+                const options = item.options.map(option => document.getElementById(option));
+                const selectedOptions = options.filter(option => option.checked);
+                if (selectedOptions.length > 0) {
+                    hasError = true; 
                 }
             }
         }
         if (categoryItems.length > 0) {
             outputText.push(`・${category.label}<br>${categoryItems.join('<br>')}<br>`);
         }
-    }       
+    }
 
-    document.getElementById('generateText').addEventListener('click', function() {
-});
+    if (hasError) {
+        alert('困りごとが選択されていないにも関わらず、その困りごとに対する合理的配慮が選択されています。');
+        return;
+    }
 
-document.getElementById('output').innerHTML = outputText.join('<br>');
+    document.getElementById('output').innerHTML = outputText.join('<br>');
     document.getElementById('outputContainer').classList.remove('hidden');
     const text = document.getElementById('output').innerHTML;
 
