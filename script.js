@@ -31,7 +31,7 @@ document.getElementById('generateText').addEventListener('click', function() {
         },
         visualSensitivity: {
             label: '視覚の過敏さがあります。',
-            options: ['lightShieldGlasses', 'SunGlasses'],
+            options: ['lightShieldGlasses', 'SunGlasses', 'ColorNote'],
             accommodation: 'を使用したいと考えています。',
             
         },
