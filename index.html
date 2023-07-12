@@ -34,7 +34,7 @@
     <div class="mb-4">
         <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
             <input id="sensitivityToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="sensitivityToggle" class="w-full py-4 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-white text-left">感覚過敏/感覚鈍麻</label>
+            <label for="sensitivityToggle" class="w-full py-4 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-white text-left">感覚過敏</label>
         </div>              
         <div id="sensitivitySection" class="hidden ml-6">
             <!-- Sound Sensitivity -->
@@ -163,34 +163,25 @@
                     </label>
                 </div>
             </div>
-            <!-- Difficulty speaking -->
-            <div class="mb-4">
-                <label class="flex items-center">
-                    <input type="checkbox" id="narrowFieldView" class="mr-2">
-                    <span class="font-bold text-lg text-lg">視野の範囲が狭い</span>
-                </label>
-            </div>
         </div>
     </div> 
 
-    <div class="mb-4">
-        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
-            <input id="communicationToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="communicationToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">コミュニケーション</label>
+<div class="mb-4">
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+    <input id="communicationToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="communicationToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">コミュニケーション</label>
         </div>             
         <div id="communicationSection" class="hidden ml-6">
-            <!-- Difficulty with Japanese -->
-            <div class="mb-4">
+            <div>
                 <label class="flex items-center">
                     <input type="checkbox" id="japaneseDifficulty" class="mr-2">
                     <span class="font-bold text-lg text-lg">日本語が苦手</span>
                 </label>
-                <div class="ml-6">
+                <div id="communicationOptions" class="ml-6">
                     <label class="flex items-center">
                         <input type="checkbox" id="translationService" class="mr-2">
                         <span>翻訳サービス</span>
                     </label>
-                    
                     <label class="flex items-center">
                         <input type="checkbox" id="simpleJapanese" class="mr-2">
                         <span>やさしい日本語</span>
@@ -198,53 +189,50 @@
                 </div>
             </div>
             <!-- Difficulty interpreting intent -->
-            <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="interpretDifficulty" class="mr-2">
                     <span class="font-bold text-lg text-lg">意図を汲み取ることが難しい</span>
                 </label>
-                <div class="ml-6">
+                <div id="interpretDifficultyOptions" class="ml-6">
                     <label class="flex items-center">
                         <input type="checkbox" id="directExpression" class="mr-2">
                         <span>直接的な表現で伝えてもらう</span>
                     </label>
                 </div>
-            </div>
-            <!-- Difficulty speaking -->
-            <div class="mb-4">
+        <div>
+            <label class="flex items-center">
+                <input type="checkbox" id="speakingDifficulty" class="mr-2">
+                <span class="font-bold text-lg text-lg">声に出して話すことが難しい</span>
+            </label>
+            <div id="speakingOptions" class="ml-6">
                 <label class="flex items-center">
-                    <input type="checkbox" id="speakingDifficulty" class="mr-2">
-                    <span class="font-bold text-lg text-lg">声に出して話すことが難しい</span>
+                    <input type="checkbox" id="useDevice" class="mr-2">
+                    <span>デバイスを使用する</span>
                 </label>
-                <div class="ml-6">
-                    <label class="flex items-center">
-                        <input type="checkbox" id="deviceUse" class="mr-2">
-                        <span>デバイスを使用する</span>
-                    </label>
-                    
-                    <label class="flex items-center">
-                        <input type="checkbox" id="writingCommunication" class="mr-2">
-                        <span>筆談で会話する</span>
-                    </label>
-                    
-                    <label class="flex items-center">
-                        <input type="checkbox" id="proxySpeaking" class="mr-2">
-                        <span>代わりに話してもらう</span>
-                    </label>
-                    
-                    <label class="flex items-center">
-                        <input type="checkbox" id="listenToEnd" class="mr-2">
-                        <span>話しているときに遮らない</span>
-                    </label>
-                    
-                    <label class="flex items-center">
-                        <input type="checkbox" id="provideClarification" class="mr-2">
-                        <span>話しているときに補足する</span>
-                    </label>
-                </div>
+
+                <label class="flex items-center">
+                    <input type="checkbox" id="writeConversation" class="mr-2">
+                    <span>筆談で会話する</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="checkbox" id="speakForMe" class="mr-2">
+                    <span>代わりに話してもらう</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="checkbox" id="doNotInterrupt" class="mr-2">
+                    <span>話しているときに遮らない</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="checkbox" id="supplementWhenSpeaking" class="mr-2">
+                    <span>話しているときに補足する</span>
+                </label>
             </div>
         </div>
-    </div>   
+    </div>
+</div>    
 
 <!-- Reading and Writing Category -->
 <div class="mb-4">

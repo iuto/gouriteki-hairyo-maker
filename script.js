@@ -67,7 +67,12 @@ document.getElementById('generateText').addEventListener('click', function() {
             label: '話の意図を汲み取ることが難しいです。',
             options: ['directExpression'],
             accommodation: 'ことを希望しています。',  
-        },          
+        },
+        speakingDifficulty: {
+            label: '声に出して話すことが難しいです。',
+            options: ['useDevice', 'writeConversation', 'speakForMe', 'doNotInterrupt', 'supplementWhenSpeaking'],
+            accommodation: 'ことを希望しています。',
+        },
     };
 
     const visualCharacteristics = {
@@ -130,20 +135,24 @@ document.getElementById('generateText').addEventListener('click', function() {
             const item = category.data[key];
             const labelText = item.label;
             if (document.getElementById(key).checked) {
-                const options = item.options.map(option => document.getElementById(option));
-                const selectedOptions = options.filter(option => option.checked);
-                const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
-                if (optionsText !== "") {
-                    categoryItems.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
+                if (item.options) { // options property の存在を確認する
+                    const options = item.options.map(option => document.getElementById(option));
+                    const selectedOptions = options.filter(option => option.checked);
+                    const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
+                    if (optionsText !== "") {
+                        categoryItems.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
+                    } else {
+                        categoryItems.push(labelText);
+                    }
                 } else {
-                    categoryItems.push(labelText);
+                    categoryItems.push(labelText); // options property が存在しない場合でも labelText を追加する
                 }
             }
         }
         if (categoryItems.length > 0) {
             outputText.push(`・${category.label}<br>${categoryItems.join('<br>')}<br>`);
         }
-    }     
+    }       
 
     document.getElementById('generateText').addEventListener('click', function() {
 });
