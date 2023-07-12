@@ -218,3 +218,9 @@ const accordionItems = [
         active: false
     }
 ];
+
+  // ダークモードの切り替えを処理する関数
+  function darkModeToggle() {
+    let body = document.getElementById("body");
+    body.classList.toggle("");
+  }
