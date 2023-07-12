@@ -11,21 +11,15 @@
   <link href="style.css" rel="stylesheet">
 </head>
 
-<header>
+<body id="body" class="mx-auto text-center dark:bg-gray-900 max-w-md">
+  <header>
     <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="index.html" class="flex items-center">
-            <img src="" class="h-8 mr-3" alt="">
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">合理的配慮メーカー</span>
         </a>
-        </div>
     </nav>  
 </header>
-
-<div class="fixed bottom-4 right-4">
-</div>
-
-<body id="body" class="mx-auto text-center dark:bg-gray-900 max-w-md">
 
   <h1 class="text-3xl font-bold mt-20 mb-4 px-10 py-2"></h1>
 
@@ -79,6 +73,9 @@
     </div>
   </div>
 
+  <h3 class="text-3xl mt-12 mb-8 font-bold dark:text-white">お知らせ</h3>
+  <p class="text-lg mb-6 text-gray-900 dark:text-white">2023/7/12 サイトを公開しました</p>
+
   <h3 class="text-3xl mt-12 mb-8 font-bold dark:text-white">お問い合わせ</h3>
   <p class="text-lg mb-6 text-gray-900 dark:text-white">追加してほしいコンテンツやバグを発見した際には、以下のフォームからお問い合わせください。</p>
   <button type="button" class="py-3 px-5 mr-2 mb-8 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
@@ -99,59 +96,22 @@ function tweet() {
     window.open(tweetUrl, '_blank');
 }
 
-  document.getElementById('darkModeToggle').addEventListener('click', function() {
-      document.body.classList.toggle('dark');
-    });
-
-  document.addEventListener("DOMContentLoaded", function() {
-  const accordions = document.querySelectorAll('[data-accordion="collapse"]');
-
-  accordions.forEach(accordion => {
-    const buttons = accordion.querySelectorAll('[data-accordion-target]');
+document.querySelectorAll('[data-accordion-target]').forEach(function(target) {
+  target.addEventListener('click', function() {
+    const body = document.querySelector(this.dataset.accordionTarget);
+    const icon = this.querySelector('[data-accordion-icon]');
     
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-accordion-target');
-        const targetElement = document.querySelector(targetId);
-        const expanded = button.getAttribute('aria-expanded') === 'true';
-
-        // Toggle aria-expanded
-        button.setAttribute('aria-expanded', !expanded);
-        // Toggle visibility of the target element
-        targetElement.classList.toggle('hidden');
-        
-        // Set classes for active and inactive states
-        const activeClasses = accordion.getAttribute('data-active-classes')?.split(' ');
-        const inactiveClasses = accordion.getAttribute('data-inactive-classes')?.split(' ');
-
-        if (activeClasses && inactiveClasses) {
-          if (expanded) {
-            button.classList.remove(...activeClasses);
-            button.classList.add(...inactiveClasses);
-          } else {
-            button.classList.remove(...inactiveClasses);
-            button.classList.add(...activeClasses);
-          }
-        }
-        
-        // Rotate the accordion icon
-        const icon = button.querySelector('[data-accordion-icon]');
-        icon.style.transform = `rotate(${expanded ? 0 : 180}deg)`;
-      });
-    });
+    if (body.classList.contains('hidden')) {
+      body.classList.remove('hidden');
+      icon.classList.remove('rotate-180');
+      this.setAttribute('aria-expanded', true);
+    } else {
+      body.classList.add('hidden');
+      icon.classList.add('rotate-180');
+      this.setAttribute('aria-expanded', false);
+    }
   });
 });
-
-document.addEventListener("DOMContentLoaded", function() {
-  // 他のコード...
-
-  document.getElementById('tweetButton').addEventListener('click', function() {
-    var tweetContent = "#合理的配慮メーカー @iuto_025 https://gouriteki-hairyo-maker.vercel.app/";
-    var tweetUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetContent);
-    window.open(tweetUrl, '_blank');
-  });
-});
-
 </script>
 </body>
 </html>
