@@ -9,6 +9,7 @@ const categories = {
 
 // 大きなカテゴリのトグルの変更に対応するリスナーの設定
 for (let toggleId in categories) {
+    console.log('Setting up listener for', toggleId); // 追加
     const sectionId = categories[toggleId];
     document.getElementById(toggleId).addEventListener('change', function () {
         const section = document.getElementById(sectionId);
@@ -66,13 +67,7 @@ document.getElementById('generateText').addEventListener('click', function() {
             label: '話の意図を汲み取ることが難しいです。',
             options: ['directExpression'],
             accommodation: 'ことを希望しています。',  
-        },
-        speakingDifficulty: {
-            label: '声に出して話すことが難しいです。',
-            options: ['deviceUse', 'writingCommunication', 'proxySpeaking', 'listenToEnd', 'provideClarification'],
-            accommodation: 'ことを希望しています。',
-            
-        },           
+        },          
     };
 
     const visualCharacteristics = {
@@ -146,9 +141,9 @@ document.getElementById('generateText').addEventListener('click', function() {
             }
         }
         if (categoryItems.length > 0) {
-            outputText.push(`・${category.label}<br>${categoryItems.join('<br>')}`);
+            outputText.push(`・${category.label}<br>${categoryItems.join('<br>')}<br>`);
         }
-    }    
+    }     
 
     document.getElementById('generateText').addEventListener('click', function() {
 });
