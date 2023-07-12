@@ -94,7 +94,7 @@ document.getElementById('generateText').addEventListener('click', function() {
         readingDifficulty: {
             label: '読むことが苦手です。',
             options: ['largeText', 'readForMe'],
-            accommodation: 'を認めることを希望しています。',
+            accommodation: 'ことを希望しています。',
         },
         writingDifficulty: {
             label: '書くことが苦手です。',
@@ -218,9 +218,3 @@ const accordionItems = [
         active: false
     }
 ];
-
-  // ダークモードの切り替えを処理する関数
-  function darkModeToggle() {
-    let body = document.getElementById("body");
-    body.classList.toggle("");
-  }

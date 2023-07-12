@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>合理的配慮メーカー</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🖨️</text></svg>"
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🖨️</text></svg>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <link href="/dist/output.css" rel="stylesheet">
     <meta property="og:title" content="合理的配慮メーカー">
     <meta property="og:description" content="合理的配慮メーカーとは、困りごと・必要としている支援内容を選択して、文章を生成したり、生成した文章をPDFとして印刷できるWEBサービスです。診断の有無は関係なく、困りごと・必要としている支援内容があれば誰でもお使いいただけます。学校や職場などに、合理的配慮について伝えたい場合などにご利用ください。">
-    <meta property="og:image" src="image/ogp.png">
+    <meta property="og:image" content="image/ogp.png">
     <meta property="og:url" content="https://gouriteki-hairyo-maker.vercel.app/">
     <meta name="description" content="合理的配慮メーカーとは、困りごと・必要としている支援内容を選択して、文章を生成したり、生成した文章をPDFとして印刷できるWEBサービスです。診断の有無は関係なく、困りごと・必要としている支援内容があれば誰でもお使いいただけます。学校や職場などに、合理的配慮について伝えたい場合などにご利用ください。">
 </head>
 
-<body class="mx-auto dark:bg-gray-900 text-center max-w-md">
+<body id="body" class="mx-auto text-center dark:bg-gray-900 max-w-md">
     <header>
         <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -34,8 +35,8 @@
     <div class="">
         <h1 class="text-3xl font-bold mt-20 mb-4 px-10 py-2"></h1>
 
-    <div class="mb-4">
-        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+    <div class="mb-4 dark:text-white">
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700 dark:hover:bg-gray-600 dark:hover:bg-gray-600">
             <input id="sensitivityToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label for="sensitivityToggle" class="w-full py-4 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-white text-left">感覚過敏</label>
         </div>              
@@ -134,10 +135,10 @@
         </div>
     </div>
 
-    <div class="mb-4">
-        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+    <div class="mb-4 dark:text-white">
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700 dark:hover:bg-gray-600">
             <input id="visualCharacteristicsToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="visualCharacteristicsToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">視覚特性</label>
+            <label for="visualCharacteristicsToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 dark:text-white text-left">視覚特性</label>
         </div>             
         <div id="visualCharacteristicsSection" class="hidden ml-6">
             <!-- Difficulty with Japanese -->
@@ -169,13 +170,14 @@
         </div>
     </div> 
 
-<div class="mb-4">
-    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+<div class="mb-4 dark:text-white">
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700 dark:hover:bg-gray-600">
     <input id="communicationToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    <label for="communicationToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">コミュニケーション</label>
+    <label for="communicationToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 dark:text-white text-left">コミュニケーション</label>
         </div>             
         <div id="communicationSection" class="hidden ml-6">
             <div>
+                <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="japaneseDifficulty" class="mr-2">
                     <span class="font-bold text-lg text-lg">日本語が苦手</span>
@@ -191,7 +193,9 @@
                     </label>
                 </div>
             </div>
+        </div>
             <!-- Difficulty interpreting intent -->
+            <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" id="interpretDifficulty" class="mr-2">
                     <span class="font-bold text-lg text-lg">意図を汲み取ることが難しい</span>
@@ -202,7 +206,9 @@
                         <span>直接的な表現で伝えてもらう</span>
                     </label>
                 </div>
+            </div>    
         <div>
+            <div class="mb-4">
             <label class="flex items-center">
                 <input type="checkbox" id="speakingDifficulty" class="mr-2">
                 <span class="font-bold text-lg text-lg">声に出して話すことが難しい</span>
@@ -238,13 +244,14 @@
 </div>    
 
 <!-- Reading and Writing Category -->
-<div class="mb-4">
-    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+<div class="mb-4 dark:text-white">
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700 dark:hover:bg-gray-600">
         <input id="readingWritingToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="readingWritingToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">読み書き</label>
+        <label for="readingWritingToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 dark:text-white text-left">読み書き</label>
     </div>    
     <div id="readingWritingSection" class="hidden ml-6">
         <div>
+            <div class="mb-4">
             <label class="flex items-center">
                 <input type="checkbox" id="readingDifficulty" class="mr-2">
                 <span class="font-bold text-lg text-lg">文字を読むことが苦手</span>
@@ -260,6 +267,7 @@
                 </label>
             </div>
         </div>
+    </div>
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="writingDifficulty" class="mr-2">
@@ -280,13 +288,14 @@
 </div>
 
 <!-- LGBTQ Category -->
-<div class="mb-4">
-    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+<div class="mb-4 dark:text-white">
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700 dark:hover:bg-gray-600">
         <input id="lgbtqToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="lgbtqToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">LGBTQ</label>
+        <label for="lgbtqToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 dark:text-white text-left">LGBTQ</label>
     </div>      
     <div id="lgbtqSection" class="hidden ml-6">
         <div>
+            <div class="mb-4">
             <label class="flex items-center">
                 <input type="checkbox" id="genderIdentity" class="mr-2">
                 <span class="font-bold text-lg text-lg">性別違和</span>
