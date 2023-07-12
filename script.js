@@ -119,32 +119,36 @@ document.getElementById('generateText').addEventListener('click', function() {
             accommodation: '配慮を希望しています。',
         },
     };
-    
-    const categoriesData = {
-        sensitivities: sensitivities,
-        visualCharacteristics: visualCharacteristics,
-        communications: communications,
-        lgbtq: lgbtq,
-        readingWriting: readingWriting  // 読み書きのカテゴリデータを追加
-    };     
 
+    const categoriesData = {
+        sensitivities: { label: '感覚過敏/感覚鈍麻', data: sensitivities },
+        visualCharacteristics: { label: '視覚特性', data: visualCharacteristics },
+        communications: { label: 'コミュニケーション', data: communications },
+        lgbtq: { label: 'LGBTQ+', data: lgbtq },
+        readingWriting: { label: '読み書き', data: readingWriting }
+    };     
+    
     for (let categoryId in categoriesData) {
         const category = categoriesData[categoryId];
-        for (let key in category) {
-            const item = category[key];
+        let categoryItems = [];
+        for (let key in category.data) {
+            const item = category.data[key];
             const labelText = item.label;
             if (document.getElementById(key).checked) {
                 const options = item.options.map(option => document.getElementById(option));
                 const selectedOptions = options.filter(option => option.checked);
                 const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
                 if (optionsText !== "") {
-                    outputText.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
+                    categoryItems.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
                 } else {
-                    outputText.push(labelText);
+                    categoryItems.push(labelText);
                 }
             }
         }
-    }
+        if (categoryItems.length > 0) {
+            outputText.push(`・${category.label}<br>${categoryItems.join('<br>')}`);
+        }
+    }    
 
     document.getElementById('generateText').addEventListener('click', function() {
 });
