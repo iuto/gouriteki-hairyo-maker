@@ -56,11 +56,25 @@ document.getElementById('generateText').addEventListener('click', function() {
         },
     };
 
+    const visualCharacteristics = {
+        colorCharacteristic: {
+            label: '色覚特性があります。',
+            options: ['colorUniversalDesign'],
+            accommodation: 'を採用してほしいと考えています。',
+
+        },
+        difficultySeeingFar: {
+            label: '遠くが見えづらいです。',
+            options: ['locationChange'],
+            accommodation: 'を希望しています。',  
+        },     
+    };
+
     const communications = {
         japaneseDifficulty: {
             label: '日本語で話すことが苦手です。',
             options: ['translationService', 'simpleJapanese'],
-            accommodation: 'を使用して話したいと考えています。',
+            accommodation: 'を使用して話してほしいと考えています。',
 
         },
         interpretDifficulty: {
@@ -75,34 +89,16 @@ document.getElementById('generateText').addEventListener('click', function() {
         },
     };
 
-    const visualCharacteristics = {
-        colorCharacteristic: {
-            label: '色覚特性があります。',
-            options: ['colorUniversalDesign'],
-            accommodation: 'を使用してほしいと考えています。',
-
-        },
-        difficultySeeingFar: {
-            label: '遠くが見えづらいです。',
-            options: ['locationChange'],
-            accommodation: 'を希望しています。',  
-        },
-        speakingDifficulty: {
-            label: '視野の範囲が狭いです。',
-            
-        },           
-    };
-
     const readingWriting = {
         readingDifficulty: {
             label: '読むことが苦手です。',
             options: ['largeText', 'readForMe'],
-            accommodation: 'の配慮を希望しています。',
+            accommodation: 'を認めることを希望しています。',
         },
         writingDifficulty: {
             label: '書くことが苦手です。',
             options: ['deviceUseWriting', 'writeForMe'],
-            accommodation: 'の配慮を希望しています。',
+            accommodation: 'ことを希望しています。',
         },
     };
       
@@ -110,13 +106,13 @@ document.getElementById('generateText').addEventListener('click', function() {
     const lgbtq = {
         genderIdentity: {
             label: '性別違和があります。',
-            options: ['hairStyleDressing', 'toiletUse', 'changingRoom', 'surnameUse', 'nicknameUse', 'outingProhibition'],
-            accommodation: '配慮を希望しています。',
+            options: ['hairStyleDressing', 'toiletUse', 'changingRoom', 'outingProhibition'],
+            accommodation: 'を希望しています。',
         },
         sexualOrientation: {
             label: '特定の性的指向を持っています。',
             options: ['outingProhibitionSexual'],
-            accommodation: '配慮を希望しています。',
+            accommodation: 'を希望しています。',
         },
     };
 
@@ -124,7 +120,7 @@ document.getElementById('generateText').addEventListener('click', function() {
         sensitivities: { label: '感覚過敏/感覚鈍麻', data: sensitivities },
         visualCharacteristics: { label: '視覚特性', data: visualCharacteristics },
         communications: { label: 'コミュニケーション', data: communications },
-        lgbtq: { label: 'LGBTQ+', data: lgbtq },
+        lgbtq: { label: 'LGBTQ', data: lgbtq },
         readingWriting: { label: '読み書き', data: readingWriting }
     };     
     
