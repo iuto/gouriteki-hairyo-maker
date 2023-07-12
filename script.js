@@ -4,54 +4,8 @@ const categories = {
     communicationToggle: 'communicationSection',
     readingWritingToggle: 'readingWritingSection',
     lgbtqToggle: 'lgbtqSection',
+    visualCharacteristicsToggle: 'visualCharacteristicsSection'
 };
-
-// 各オプションに対応するラベルのid
-const optionToLabelMapping = {
-    earMuffs: 'soundSensitivity',
-    noiseCancellingEarphones: 'soundSensitivity',
-    earPlugs: 'soundSensitivity',
-    digitalEarPlugs: 'soundSensitivity',
-    lightShieldGlasses: 'visualSensitivity',
-    SunGlasses: 'visualSensitivity',
-    foodChange: 'tasteSensitivity',
-    placeChange: 'smellSensitivity',
-    clothesChange: 'touchSensitivity',
-    translationService: 'japaneseDifficulty',
-    simpleJapanese: 'japaneseDifficulty',
-    directExpression: 'interpretDifficulty',
-    deviceUse: 'speakingDifficulty',
-    writingCommunication: 'speakingDifficulty',
-    proxySpeaking: 'speakingDifficulty',
-    listenToEnd: 'speakingDifficulty',
-    provideClarification: 'speakingDifficulty',
-    largeText: 'readingDifficulty',
-    readForMe: 'readingDifficulty',
-    deviceUseWriting: 'writingDifficulty',
-    writeForMe: 'writingDifficulty',
-    hairStyleDressing: 'genderIdentity',
-    toiletUse: 'genderIdentity',
-    changingRoom: 'genderIdentity',
-    surnameUse: 'genderIdentity',
-    nicknameUse: 'genderIdentity',
-    outingProhibition: 'genderIdentity',
-    outingProhibitionSexual: 'sexualOrientation',
-};
-
-// オプションの変更に対応するリスナーの設定
-for (let optionId in optionToLabelMapping) {
-    const labelId = optionToLabelMapping[optionId];
-    document.getElementById(optionId).addEventListener('change', function () {
-        const label = document.getElementById(labelId);
-        if (this.checked) {
-            label.checked = true;
-        }
-        // オプションが選択解除されたときにラベルも選択解除する場合は、以下のコードを追加してください。
-        // else {
-        //     label.checked = false;
-        // }
-    });
-}
 
 // 大きなカテゴリのトグルの変更に対応するリスナーの設定
 for (let toggleId in categories) {
@@ -68,7 +22,6 @@ for (let toggleId in categories) {
 
 document.getElementById('generateText').addEventListener('click', function() {
     let outputText = [];
-    let hasOptions = false;
     const sensitivities = {
         soundSensitivity: {
             label: '音の過敏さがあります。',
@@ -122,6 +75,24 @@ document.getElementById('generateText').addEventListener('click', function() {
         },           
     };
 
+    const visualCharacteristics = {
+        colorCharacteristic: {
+            label: '色覚特性があります。',
+            options: ['colorUniversalDesign'],
+            accommodation: 'を使用してほしいと考えています。',
+
+        },
+        difficultySeeingFar: {
+            label: '遠くが見えづらいです。',
+            options: ['locationChange'],
+            accommodation: 'を希望しています。',  
+        },
+        speakingDifficulty: {
+            label: '視野の範囲が狭いです。',
+            
+        },           
+    };
+
     const readingWriting = {
         readingDifficulty: {
             label: '読むことが苦手です。',
@@ -151,6 +122,7 @@ document.getElementById('generateText').addEventListener('click', function() {
     
     const categoriesData = {
         sensitivities: sensitivities,
+        visualCharacteristics: visualCharacteristics,
         communications: communications,
         lgbtq: lgbtq,
         readingWriting: readingWriting  // 読み書きのカテゴリデータを追加
@@ -167,7 +139,6 @@ document.getElementById('generateText').addEventListener('click', function() {
                 const optionsText = selectedOptions.map(option => option.nextElementSibling.textContent.trim()).join('、');
                 if (optionsText !== "") {
                     outputText.push(`${labelText} そのため、${optionsText}${item.accommodation}`);
-                    hasOptions = true;
                 } else {
                     outputText.push(labelText);
                 }
@@ -234,9 +205,3 @@ const accordionItems = [
         active: false
     }
 ];
-
-  // ダークモードの切り替えを処理する関数
-  function darkModeToggle() {
-    let body = document.getElementById("body");
-    body.classList.toggle("");
-  }

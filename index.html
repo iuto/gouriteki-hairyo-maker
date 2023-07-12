@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>合理的配慮メーカー</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🖨️</text></svg>"
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> <!-- jsPDFのスクリプトを追加 -->
-    <link href="/dist/output.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 </head>
 
 <header>
@@ -27,17 +27,14 @@
     </nav>  
 </header>
 
-<div id="body" class="fixed bottom-4 right-4">
-  </div>
-
-  <body class="mx-auto text-center max-w-md dark:bg-gray-900 dark:text-white">
+<body class="mx-auto text-center max-w-md">
     <div class="">
         <h1 class="text-3xl font-bold mt-20 mb-4 px-10 py-2"></h1>
 
     <div class="mb-4">
-        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-100 rounded dark:border-gray-700 dark:hover:bg-gray-700">
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
             <input id="sensitivityToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="sensitivityToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">感覚過敏/感覚鈍麻</label>
+            <label for="sensitivityToggle" class="w-full py-4 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-white text-left">感覚過敏/感覚鈍麻</label>
         </div>              
         <div id="sensitivitySection" class="hidden ml-6">
             <!-- Sound Sensitivity -->
@@ -133,7 +130,49 @@
     </div>
 
     <div class="mb-4">
-        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-100 rounded dark:border-gray-700 dark:hover:bg-gray-700">
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
+            <input id="visualCharacteristicsToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="visualCharacteristicsToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">視覚特性</label>
+        </div>             
+        <div id="visualCharacteristicsSection" class="hidden ml-6">
+            <!-- Difficulty with Japanese -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="colorCharacteristic" class="mr-2">
+                    <span class="font-bold text-lg text-lg">色覚特性</span>
+                </label>
+                <div class="ml-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="colorUniversalDesign" class="mr-2">
+                        <span>カラーユニバーサルデザイン</span>
+                    </label>
+                </div>
+            </div>
+            <!-- Difficulty interpreting intent -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="difficultySeeingFar" class="mr-2">
+                    <span class="font-bold text-lg text-lg">遠くが見えづらい</span>
+                </label>
+                <div class="ml-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="locationChange" class="mr-2">
+                        <span>場所の変更</span>
+                    </label>
+                </div>
+            </div>
+            <!-- Difficulty speaking -->
+            <div class="mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="narrowFieldView" class="mr-2">
+                    <span class="font-bold text-lg text-lg">視野の範囲が狭い</span>
+                </label>
+            </div>
+        </div>
+    </div> 
+
+    <div class="mb-4">
+        <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
             <input id="communicationToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label for="communicationToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">コミュニケーション</label>
         </div>             
@@ -203,11 +242,11 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>   
 
 <!-- Reading and Writing Category -->
 <div class="mb-4">
-    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-100 rounded dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
         <input id="readingWritingToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
         <label for="readingWritingToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">読み書き</label>
     </div>    
@@ -215,7 +254,7 @@
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="readingDifficulty" class="mr-2">
-                <span class="font-bold text-lg text-lg">読むことが苦手</span>
+                <span class="font-bold text-lg text-lg">文字を読むことが苦手</span>
             </label>
             <div id="readingOptions" class="ml-6">
                 <label class="flex items-center">
@@ -231,7 +270,7 @@
         <div>
             <label class="flex items-center">
                 <input type="checkbox" id="writingDifficulty" class="mr-2">
-                <span class="font-bold text-lg text-lg">書くことが苦手</span>
+                <span class="font-bold text-lg text-lg">文字を書くことが苦手</span>
             </label>
             <div id="writingOptions" class="ml-6">
                 <label class="flex items-center">
@@ -249,7 +288,7 @@
 
 <!-- LGBTQ Category -->
 <div class="mb-4">
-    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-100 rounded dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="flex items-center pl-4 mt-4 mb-4 border border-gray-200 hover:bg-gray-50 rounded dark:border-gray-700">
         <input id="lgbtqToggle" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
         <label for="lgbtqToggle" class="w-full py-4 ml-2 ml-4 text-xl font-bold text-lg text-lg text-gray-900 dark:text-gray-300 text-left">LGBTQ</label>
     </div>      
@@ -307,36 +346,27 @@
     </button>
 </div>
 
-<div class="mb-4 hidden" id="outputContainer">
+<div class="mt-8 mb-8 hidden" id="outputContainer">
     <div class="darkmode-span">
-        <div class="p-4 text-sm text-gray-800 rounded-xl bg-gray-50 dark:bg-gray-800 dark:text-white" role="alert">
+        <div class="p-4 text-sm text-gray-800 text-left rounded-xl bg-gray-50 dark:bg-gray-800 dark:text-white mb-8" role="alert">
             <span class="font-medium dark:text-white" id="output"></span>
-        </div>  
+        </div>        
     </div>                    
     <button id="copyText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-lg text-lg py-2 px-4 rounded-lg">コピー</button>
     <button id="downloadPDF" class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-lg text-lg py-2 px-4 rounded-lg ml-4">PDFでダウンロード</button>
 </div>    
 </div>
 
-<div id="popup-modal" tabindex="-1" class="fixed inset-0 flex items-center justify-center z-50 hidden p-4 overflow-x-hidden overflow-y-auto h-[calc(100%-1rem)] max-h-full">
-    <div class="relative max-w-md max-h-full mx-auto">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                </svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div class="p-6 text-center">
-                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                </svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">支援内容と困りごとを選択する必要があります。✕を押して、もう一度選択し直してください。</h3>
-            </div>
-        </div>
-    </div>
-</div>
+<style>
+    body {
+        width: 90%;
+    }
 
+    #output {
+        text-align: left;
+    }
+</style>
+    
 </body>
 <script src="script.js"></script>
 

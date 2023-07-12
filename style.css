@@ -4,5 +4,8 @@
 
 body {
     width: 90%;
-    margin: auto;
+}
+
+#output {
+    text-align: left;
 }
